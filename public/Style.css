@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* game.html--- start */
+#title {
+    height: 7vh;
+    width: auto;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status {
+    height: 7vh;
+    width: 100vw;
+    background-color: rgb(42, 165, 95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#player1,
+#player2 {
+    height: 7vh;
+    width: 35vw;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: rgb(236, 147, 59); */
+    /* border-left: 1px solid black;
+    border-right: 1px solid black; */
+    display: flex;
+    align-items: center;
+}
+
+#avatar1 {
+    height: 2.3rem;
+    width: 2.3rem;
+    /* border: 1px solid black; */
+    position: absolute;
+    left: 0;
+    margin-left: 0.3rem;
+    border-radius: 50%;
+    /* background-image: url("./rsc/avatar1.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 107%;
+}
+
+#avatar2 {
+    height: 2.3rem;
+    width: 2.3rem;
+    /* border: 1px solid black; */
+    position: absolute;
+    right: 0;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    /* background-image: url("./rsc/avatar3.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 107%;
+}
+
+#name1 {
+    height: auto;
+    width: auto;
+    font-size: small;
+    position: absolute;
+    left: 3rem;
+}
+
+#name2 {
+    height: auto;
+    width: auto;
+    font-size: small;
+    position: absolute;
+    right: 3rem;
+}
+
+.updates {
+    height: 3rem;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2rem;
+}
+
+#poisoning,
+#poisoned {
+    height: 3rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+#poisoned {
+    display: none;
+}
+
+#poisoning {
+    visibility: hidden;
+}
+
+#poisoning p:first-child {
+    color: red;
+}
+
+#turn {
+    width: 33vh;
+    text-align: center;
+    color: red;
+}
+
+.board1 {
+    height: 35vh;
+    width: 35vh;
+    border: 1px solid black;
+    display: none;
+    position: fixed;
+    left: calc(50vw - 17.5vh);
+    top: 23vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .board2 {
+    display: none;
+} */
+
+.board1 button {
+    height: calc(8.75vh - 0.5px);
+    width: calc(8.75vh - 0.5px);
+    border: 0.5px solid black;
+    cursor: pointer;
+    display: flex;
+    background-image: url("./rsc/samosa.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+}
+
+.button-area {
+    height: 32vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    /* border-top: 1px solid black; */
+    /* background-color: rgb(42, 165, 95); */
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+#poison-btn {
+    height: 3rem;
+    width: 8rem;
+    border: 1px solid black;
+}
+
+.game-over-window {
+    height: 100vh;
+    width: 100vw;
+    background-color: hwb(180 24% 75% / 0.149);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+}
+
+#message-div {
+    height: 17vh;
+    width: 32vh;
+    margin-bottom: 5.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#middle-div {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+#game-over-btn {
+    height: 1.5rem;
+    width: 5rem;
+    border: 1px solid black;
+}
+
+#g-o {
+    color: red;
+}
+
+
+/* game.html--- end */
+
+
+/* Index.html--- start */
+.title {
+    height: 15vh;
+    width: 100vw;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle-area {
+    height: 56vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    height: 35vh;
+    width: 45vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+:root {
+    --placeholder-color: gray;
+}
+
+#name {
+    height: 2rem;
+    width: 11rem;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#name::placeholder {
+    color: var(--placeholder-color);
+    text-transform: none;
+}
+
+#select {
+    height: 6rem;
+    width: 18rem;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#right,
+#left {
+    height: 2rem;
+    width: 2rem;
+    background-color: rgb(0, 0, 0, 0);
+    background-image: url("./rsc/arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#left {
+    transform: scaleX(-1);
+}
+
+#character {
+    height: 4.5rem;
+    width: 4.5rem;
+    /* border: 1px solid black; */
+    background-image: url("./rsc/avatar2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#create {
+    height: 3rem;
+    width: 18rem;
+    border: 1px solid black;
+
+}
+
+#join {
+    height: 2.5rem;
+    width: 18rem;
+    border: 1px solid black;
+}
+
+/*Index.html--- end */
+
+
+/* create-room.html--- start */
+
+.room-info {
+    height: 56vh;
+    width: 100vw;
+    padding-top: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding-bottom: 1rem; */
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4rem;
+}
+
+#table {
+    height: 13rem;
+    width: auto;
+    border: 1px solid black;
+    /* border-collapse: collapse; */
+}
+
+tr {
+    height: 2rem;
+    width: 45vh;
+    padding-left: 0.5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+th {
+    display: flex;
+    justify-self: start;
+    align-items: center;
+}
+
+table tr:first-child {
+    border-bottom: 1px solid black;
+}
+
+#room-status {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#message {
+    color: red;
+}
+
+#start {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    height: 2.5rem;
+    width: 13rem;
+    font-size: medium;
+    border: 1px solid black;
+    /* cursor:not-allowed; */
+}
+
+/* create-room.html--- end */
+
+
+/* join-room.html--- start */
+.join-outer {
+    height: 56vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding-bottom: 1rem; */
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#join-div {
+    height: 25vh;
+    width: 40vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+:root {
+    --placeholder-color1: gray;
+}
+
+#input-roomcode {
+    height: 1.7rem;
+    width: 11rem;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#input-roomcode::placeholder {
+    text-transform: none;
+    color: var(--placeholder-color1);
+}
+
+#submit {
+    height: 2.5rem;
+    width: 8rem;
+    /* font-size: medium; */
+    border: 1px solid black;
+}
+
+
+/* join-room.html--- end */
